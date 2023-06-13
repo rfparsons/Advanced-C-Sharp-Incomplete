@@ -1,0 +1,47 @@
+﻿@model BirthdayCalc
+@{
+    ViewBag.Title = "Age Calculator";
+}
+
+<div class="container">
+    <header class="jumbotron">
+        <h1 class="mt-3">@ViewBag.Title</h1>
+    </header>
+    <main>
+        <form asp-action="Index" method="post" class="form-horizontal">
+            <div class="row">
+                <label asp-for="Name"
+                       class="control-label col-sm-3">
+                    Name:
+                </label>
+                <input asp-for="Name"
+                       class="form-control col-sm-3" />
+                <span asp-validation-for="Name"
+                      class="text-danger col"></span>
+            </div>
+            <div class="row">
+                <label asp-for="BirthYear"
+                       class="control-label col-sm-3">
+                    Birth Year:
+                </label>
+                <input asp-for="BirthYear"
+                       class="form-control col-sm-3" />
+                <span asp-validation-for="BirthYear"
+                      class="text-danger col"></span>
+            </div>
+            <div class="row">
+                <div class="@ViewBag.MsgClass">@ViewBag.Name will be (or is) @ViewBag.Age years old this year!</div>
+            </div>
+            <div class="row">
+                <div class="col offset-sm-3 pl-0">
+                    <button type="submit"
+                            class="btn btn-primary">
+                        Calculate
+                    </button>
+                    <a asp-action="Index"
+                       class="btn btn-outline-secondary">Clear</a>
+                </div>
+            </div>
+        </form>
+    </main>
+</div>
